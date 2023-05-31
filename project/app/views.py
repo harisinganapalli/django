@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django. http import HttpResponse
 from django.template import loader
 from . models import classes
+from .models import new
+
 
 # Create your views here.
 def function(request):
@@ -49,4 +51,58 @@ def proper(request):
         
     }
     return render(request,'condition1.html',context)
-    
+
+def loops(request):
+    context={
+        'fruits': ['apple','mango','banana','watermelon','kiwi']
+       
+    }
+    return  render(request,'loop.html', context)
+
+
+def query(request):
+    querysets=classes.objects.all().values()
+    context={
+        'set':querysets,
+    }
+    return render(request,'queryset.html',context)
+
+def particular(request):
+    here=classes.objects.values_list('phone')
+    context={
+        'hari':here,
+    }   
+    return render(request,'getdata.html',context)
+
+def rare(request):
+    help= new.objects.filter(name='hari').values()
+    print(help)
+    context={
+        'set':help,
+    }
+    return render(request,'getfilter.html',context)
+def bootstrap(request):
+    querysets=classes.objects.all().order_by('lastname').values()
+    context={
+        'set':querysets,
+    }
+    return render(request,'queryset.html',context)
+def boot(request):
+    querysets=classes.objects.all().order_by('-lastname').values()
+    context={
+        'set':querysets,
+    }
+    return render(request,'queryset.html',context)
+def stylecss(request):
+    context={
+        'animals': ['lion','tiger','peacock','cat','dog','elephant','cow']
+
+    }
+    return render(request,'style.html',context)
+
+def employeelist(request):
+    return
+def employeeform(request):
+    return  
+def employeedelete(request):
+    return

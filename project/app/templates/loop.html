@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <ul>
+            
+                {% for x in fruits %}
+                <li>
+                <p>{{x}}</p>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <ui>
+            {% for x in fruits reversed %}
+            <li><p>{{x}}</p></li>
+            {%endfor %}
+        </ui>
+       
+        <ul>
+            {% for x in fruits %}
+              <li>{{ forloop.counter }}</li>
+            {% endfor %}
+          </ul> 
+
+          <ul>
+            {% for x in fruits %}
+              <li
+                {% if forloop.first %}
+                  style='background-color:lightblue;'
+                {% endif %}
+              >{{ x }}</li>
+            {% endfor %}
+          </ul> 
+
+          <ul>
+            {% for x in fruits %}
+              <li>{{ forloop.counter }}</li>
+            {% endfor %}
+          </ul>
+
+          <ul>
+            {% for x in fruits %}
+              <li
+                {% if forloop.last %}
+                  style='background-color:palevioletred;'
+                {% endif %}
+              >{{ x }}</li>
+            {% endfor %}
+          </ul> 
+          <ul>
+            {% for x in fruits %}
+              <li>{{ forloop.revcounter }}</li>
+            {% endfor %}
+          </ul> 
+
+          <ul>
+            {% for x in fruits %}
+              <li>{{ forloop.revcounter0 }}</li>
+            {% endfor %}
+          </ul>
+          <p> this comment </p>
+          {% comment %}
+          <p>Message from my computer:</p>
+           <p>File not found.<br>Press F1 to continue</p>
+           {% endcomment %}
+           
+          <p>This page contains a footer in a template.</p>
+          
+           {% include 'include.html' %} 
+           
+           <p>Check out the two templates to see what they look like, and views.py to see the reference to the child template.</p>
+               
+
+    </body>
+</html>

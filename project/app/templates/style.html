@@ -1,0 +1,12 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="{% static 'first.css' %}">
+    <body>
+        <h1> apply csss </h1>
+        {% for x in animals %}
+        <p>{{x}}</p>
+        {% endfor %}
+
+    </body>
+</html>
