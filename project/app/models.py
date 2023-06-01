@@ -15,14 +15,17 @@ class new(models.Model):
      name=models.CharField(max_length=23)
      company=models.CharField(max_length=50)
 
-# class Postion(models.Model):
-#     title=models.CharField(max_length=55)
+class Postion(models.Model):
+    title=models.CharField(max_length=55)
+    def __str__ (self):
+      return f"{self.title}"   
 
 
-# class employee(models.Model):
-#     fullname=models.CharField(max_length=50)
-#     employeecode=models.CharField(max_length=5)
-#     number=models.CharField(max_length=15)
-#     position=models.ForeignKey(Postion,on_delete=models.CASCADE)
+
+class employee(models.Model):
+    fullname=models.CharField(max_length=50)
+    employeecode=models.CharField(max_length=5)
+    number=models.CharField(max_length=15)
+    position=models.ForeignKey(Postion,on_delete=models.CASCADE)
 
          

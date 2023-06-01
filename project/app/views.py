@@ -3,6 +3,7 @@ from django. http import HttpResponse
 from django.template import loader
 from . models import classes
 from .models import new
+from .forms import Employeeform
 
 
 # Create your views here.
@@ -101,8 +102,15 @@ def stylecss(request):
     return render(request,'style.html',context)
 
 def employeelist(request):
-    return
+    form = Employeeform()
+    print(form)
+    return render(request,'employeelist.html',{'form':form})
+
+
 def employeeform(request):
-    return  
+    # form = Employeeform()
+    # print(form)
+    return  render(request,'employeeform.html',) 
 def employeedelete(request):
-    return
+    return render(request,'employeedelete',)
+
