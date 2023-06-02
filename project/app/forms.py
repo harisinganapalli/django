@@ -2,11 +2,12 @@ from django import forms
 from .models import employee 
 
 POSITIONS= [
+     ('select','Select'),
     ('manager', 'Manager'),
     ('ceo', 'CEO'),
     ('assit.manager','Assit.manager'),
     ('hr','HR'),
-    ('director','Director')
+    ('director','Director') 
     ]
 
 class Employeeform(forms.ModelForm):
@@ -22,5 +23,5 @@ class Employeeform(forms.ModelForm):
                'position':'Position'
           }
 
-     def __init__(self):
-          self.fields['employeecode'].required=False      
+     # def __init__(self):
+     #      self.fields['employeecode'].required=False      

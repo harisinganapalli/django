@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django. http import HttpResponse
 from django.template import loader
 from . models import classes
@@ -102,10 +102,36 @@ def stylecss(request):
     return render(request,'style.html',context)
 
 def employeelist(request):
-    form = Employeeform()
-    print(form)
-    return render(request,'employeelist.html',{'form':form})
+    
+    form=Employeeform()
+    if request.method=='POST':
+       print(request.POST['position'])
+       fullname=request.POST['fullname']
+       print(fullname)
+       employeecode=request.POST['employeecode']
+       print(employeecode)
+       number=request.POST['number']
+       print(number)
+       position=request.POST.get('position')
+       print(position)
+       form= Employeeform(request.POST)
+       print(form)
+       if form.is_valid():
+            print("enters")
+            form.save()
+            print("data inserted")
 
+            return redirect('/')
+       else:
+
+           form=Employeeform()
+           return render(request,'employeelist.html',{'form':form})
+    return render(request,'employeelist.html',{'form':form})   
+    # else:
+    #     form=Employeeform(request.POST)
+    #     if form.is_valid():
+    #         form.save()
+    #     return redirect()   
 
 def employeeform(request):
     # form = Employeeform()

@@ -24,8 +24,13 @@ class Postion(models.Model):
 
 class employee(models.Model):
     fullname=models.CharField(max_length=50)
-    employeecode=models.CharField(max_length=5)
+    employeecode=models.CharField(max_length=5,blank=True,)
     number=models.CharField(max_length=15)
-    position=models.ForeignKey(Postion,on_delete=models.CASCADE)
+    # position=models.OneToOneField(Postion,on_delete=models.CASCADE)
+    position=models.CharField(max_length=234)
+
+
+    def __str__(self):
+        return self.fullname
 
          
