@@ -4,6 +4,7 @@ from django.template import loader
 from . models import classes
 from .models import new
 from .forms import Employeeform
+from .forms import Student
 
 
 # Create your views here.
@@ -139,4 +140,21 @@ def employeeform(request):
     return  render(request,'employeeform.html',) 
 def employeedelete(request):
     return render(request,'employeedelete',)
+
+
+def studentform(request):
+    form=Student()
+    if request.method=='POST':
+        print(request.POST)
+        form = Student(request.POST)
+        print(form.is_valid())
+        if form.is_valid():
+            form.save()
+            print("data inserted")
+            return HttpResponse('user created successfully')
+    else:
+        student=Student() 
+        return render(request,'students.html',{"form":student})
+    return render(request,'students.html',{"form":form})
+         
 

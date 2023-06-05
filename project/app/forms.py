@@ -1,5 +1,7 @@
 from django import forms
-from .models import employee 
+from .models import Students,employee
+from django.forms.widgets import NumberInput 
+from django.core.exceptions import ValidationError
 
 POSITIONS= [
      ('select','Select'),
@@ -23,5 +25,15 @@ class Employeeform(forms.ModelForm):
                'position':'Position'
           }
 
-     # def __init__(self):
-     #      self.fields['employeecode'].required=False      
+Choice = [('1', 'Male'), ('2', '  Female'), ('3', 'Others')]
+class Student(forms.ModelForm):
+
+     class Meta:
+          model=Students
+          fields="__all__"
+     def clean(self):
+          cleaned_data=super().clean()
+          f = self.cleaned_data['firstname'] 
+          if len(f) <= 5:
+               raise forms.ValidationError("firstname have more than 5 values ")
+          return f

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import classes,employee
+from .models import classes,employee,Students
 # Register your models here.
  
  
@@ -11,6 +11,7 @@ from .models import classes,employee
 class classadmin(admin.ModelAdmin):
     list_display=('firstname','lastname','age',)
 admin.site.register(classes,classadmin)
-admin.site.register(employee)    
+admin.site.register(employee) 
+admin.site.register(Students)   
 
 

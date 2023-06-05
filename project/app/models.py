@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class  classes(models.Model):
     firstname=models.CharField(max_length=60)
@@ -23,14 +24,27 @@ class Postion(models.Model):
 
 
 class employee(models.Model):
-    fullname=models.CharField(max_length=50)
+    fullname=models.CharField( max_length=100)
     employeecode=models.CharField(max_length=5,blank=True,)
     number=models.CharField(max_length=15)
-    # position=models.OneToOneField(Postion,on_delete=models.CASCADE)
     position=models.CharField(max_length=234)
 
 
     def __str__(self):
         return self.fullname
+    
+class Students(models.Model):
+    firstname=models.CharField(max_length=50)
+    lastname=models.CharField(max_length=50)
+    email=models.EmailField(max_length=70)
+    branch=models.CharField(max_length=50)
+    phonenumber=models.CharField(max_length=10)
+    rollnumber=models.CharField(max_length=50)
+    
+    
+     
+
+    def __str__(self):
+        return self.firstname   
 
          
