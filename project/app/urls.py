@@ -15,7 +15,7 @@ urlpatterns=[
     path('bootstrap/',views.bootstrap,name='bootstrap'),
     path('boot/', views.boot,name='boot'),
     path('stylecss/',views.stylecss,name='stylecss'),
-    path('',views.employeeform),
+    # path('',views.employeeform),
     path('employeelist/',views.employeelist,name='employeelist'),
     path('studentform/',views.studentform,name="studentform")
     

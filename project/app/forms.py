@@ -27,6 +27,8 @@ class Employeeform(forms.ModelForm):
 
 Choice = [('1', 'Male'), ('2', '  Female'), ('3', 'Others')]
 class Student(forms.ModelForm):
+     date_of_birth = forms.DateField(widget = NumberInput(attrs={'type':'date'})) 
+     rank = forms.ChoiceField(widget = forms.RadioSelect, choices=Choice)  
 
      class Meta:
           model=Students
@@ -34,6 +36,13 @@ class Student(forms.ModelForm):
      def clean(self):
           cleaned_data=super().clean()
           f = self.cleaned_data['firstname'] 
+          r=self.cleaned_data['lastname']
+          h=self.cleaned_data['phonenumber']
           if len(f) <= 5:
                raise forms.ValidationError("firstname have more than 5 values ")
-          return f
+          
+          if len(r)<= 6:
+               raise forms.ValidationError("lastname have more than 6 values") 
+
+          if len(h)<10:
+               raise forms.ValidationError('phone number must be in 10 digits')  

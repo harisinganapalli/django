@@ -40,13 +40,16 @@ INSTALLED_APPS = [
     'app',
     'crispy_forms',
     'crispy_bootstrap5',
+    'create',
+    'apikeys',
 ]
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-
+# CORS_ORIGIN_ALLOW_ALL=True
 
 MIDDLEWARE = [
+    # 'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

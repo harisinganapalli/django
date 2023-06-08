@@ -151,7 +151,7 @@ def studentform(request):
         if form.is_valid():
             form.save()
             print("data inserted")
-            return HttpResponse('user created successfully')
+            return HttpResponse('Student form submitted successfully')
     else:
         student=Student() 
         return render(request,'students.html',{"form":student})
